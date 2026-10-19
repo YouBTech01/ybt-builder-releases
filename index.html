@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YBT Builder - Turn any website into an app</title>
+<meta name="description" content="YBT Builder turns a website or offline HTML project into signed Android apps from a guided builder for Android, Windows, Linux and the web. Download for your system.">
+<meta property="og:title" content="YBT Builder">
+<meta property="og:description" content="Turn any website into an app. Download for Android, Windows, Linux and Web.">
+<meta property="og:image" content="assets/media/poster.jpg">
+<link rel="icon" href="assets/favicon.png">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --ink:#0b0f14; --mut:#5b6472; --line:#e6e9ee; --soft:#f5f7fa; --bg:#ffffff;
+  --g:#16a34a; --gd:#12803a; --gs:#e7f6ec; --blue:#2563eb;
+  --r:22px; --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+section{padding:110px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:var(--gs);color:var(--gd);font-weight:700;font-size:14px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--g);animation:pulse 1.8s infinite}
+h1{font-size:clamp(44px,6.4vw,84px);line-height:1.02;letter-spacing:-.045em;font-weight:750}
+h2{font-size:clamp(34px,4.4vw,56px);line-height:1.06;letter-spacing:-.04em;font-weight:750}
+.lead{font-size:clamp(18px,2vw,22px);color:var(--mut);max-width:560px}
+.sec-head{max-width:720px;margin-bottom:56px}
+.sec-head p{margin-top:16px;color:var(--mut);font-size:19px}
+.g{color:var(--gd)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:16px;font-weight:700;font-size:17px;border:2px solid var(--ink);background:var(--ink);color:#fff;transition:transform .25s var(--ease),background .25s,color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px rgba(11,15,20,.16)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.green{background:var(--g);border-color:var(--g)}
+.btn img{width:20px;height:20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:750;font-size:20px;letter-spacing:-.02em}
+.brand img{width:38px;height:38px;border-radius:10px}
+.links{display:flex;gap:30px;font-weight:600;color:var(--mut)}
+.links a{position:relative;padding:6px 0;transition:color .2s}
+.links a:hover{color:var(--ink)}
+.links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--g);transition:width .3s var(--ease)}
+.links a:hover::after{width:100%}
+nav .btn{height:44px;padding:0 20px;font-size:15px;border-radius:12px}
+
+/* hero */
+.hero{padding:72px 0 90px;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1{margin:22px 0 22px}
+.hero h1 span{display:inline-block;animation:rise .8s var(--ease) both}
+.hero h1 .g{position:relative}
+.hero h1 .g::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;background:var(--gs);z-index:-1;transform-origin:left;animation:grow 1s .9s var(--ease) both}
+.hero .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero .note{margin-top:18px;color:var(--mut);font-size:15px}
+.stage{position:relative;height:640px}
+.phone{position:absolute;left:50%;top:10px;width:300px;height:600px;margin-left:-150px;border:10px solid var(--ink);border-radius:48px;background:#fff;overflow:hidden;animation:phone 6s ease-in-out infinite}
+.phone .notch{position:absolute;left:50%;top:10px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--ink)}
+.phone .in{padding:46px 20px 20px}
+.phone .ttl{display:flex;align-items:center;gap:12px;font-weight:750;font-size:20px}
+.phone .ttl img{width:34px;height:34px;border-radius:9px}
+.bar{height:10px;background:#eef0f3;border-radius:6px;margin:22px 0 14px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--g);border-radius:6px;animation:fill 9s linear infinite}
+.row{display:flex;align-items:center;gap:12px;padding:11px 0;font-weight:600;color:#9aa3af;font-size:16px;animation:tick 9s infinite}
+.row .d{width:24px;height:24px;border-radius:50%;border:2px solid #d4d8de;display:flex;align-items:center;justify-content:center;flex:none;animation:dot 9s infinite}
+.row .d img{width:13px;height:13px;opacity:0;animation:chk 9s infinite}
+.row:nth-child(3),.row:nth-child(3) .d,.row:nth-child(3) .d img{animation-delay:0.0s}
+.row:nth-child(4),.row:nth-child(4) .d,.row:nth-child(4) .d img{animation-delay:0.9s}
+.row:nth-child(5),.row:nth-child(5) .d,.row:nth-child(5) .d img{animation-delay:1.8s}
+.row:nth-child(6),.row:nth-child(6) .d,.row:nth-child(6) .d img{animation-delay:2.7s}
+.row:nth-child(7),.row:nth-child(7) .d,.row:nth-child(7) .d img{animation-delay:3.6s}
+.done{margin-top:18px;display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:16px;background:var(--ink);color:#fff;font-weight:700;opacity:0;animation:pop 9s infinite}
+.done small{display:block;font-weight:500;color:#9aa3af;font-size:12px}
+.done b{margin-left:auto;color:#6ee79a;font-size:13px}
+.fl{position:absolute;width:92px;height:92px;border-radius:24px;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px rgba(11,15,20,.10);display:flex;align-items:center;justify-content:center;animation:float 5s ease-in-out infinite}
+.fl img{width:54px;height:54px;object-fit:contain}
+.fl.a{left:0;top:40px;animation-delay:-1s}
+.fl.b{right:6px;top:110px;animation-delay:-2.4s}
+.fl.c{left:10px;top:330px;animation-delay:-3.2s}
+.fl.d{right:0;top:400px;animation-delay:-.4s}
+.fl.e{left:56px;top:540px;animation-delay:-4s;width:78px;height:78px}
+.fl.e img{width:44px;height:44px}
+.fl.f{right:50px;top:-4px;animation-delay:-2s;width:74px;height:74px}
+.fl.f img{width:42px;height:42px}
+
+/* ticker */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 0;overflow:hidden;background:#fff}
+.ticker .track{display:flex;gap:64px;width:max-content;animation:marq 38s linear infinite}
+.ticker img{height:42px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .3s,opacity .3s,transform .3s}
+.ticker img:hover{filter:none;opacity:1;transform:scale(1.15)}
+
+/* stats */
+.stats{background:var(--soft);padding:70px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+.stat b{display:block;font-size:clamp(40px,5vw,64px);letter-spacing:-.05em;font-weight:750;line-height:1}
+.stat span{color:var(--mut);font-weight:600}
+
+/* features */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:transform .35s var(--ease),border-color .3s,box-shadow .35s}
+.card:hover{transform:translateY(-8px);border-color:var(--ink);box-shadow:0 24px 50px rgba(11,15,20,.08)}
+.card .ic{width:58px;height:58px;border-radius:16px;background:var(--gs);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:transform .4s var(--ease)}
+.card:hover .ic{transform:rotate(-8deg) scale(1.1)}
+.card .ic img{width:30px;height:30px;object-fit:contain}
+.card h3{font-size:21px;letter-spacing:-.02em;margin-bottom:8px}
+.card p{color:var(--mut);font-size:16px}
+
+/* flow */
+.flow{background:var(--soft)}
+.flow img{width:100%;border-radius:var(--r);border:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+.steps .card{background:#fff}
+.steps .n{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;align-items:center;justify-content:center;margin-bottom:16px}
+
+/* downloads */
+.dl{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.os{position:relative;background:#fff;border:2px solid var(--line);border-radius:26px;padding:32px 28px 28px;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .3s,box-shadow .35s}
+.os:hover{transform:translateY(-10px);border-color:var(--ink);box-shadow:0 28px 60px rgba(11,15,20,.10)}
+.os .lg{width:84px;height:84px;border-radius:24px;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:transform .5s var(--ease)}
+.os:hover .lg{transform:scale(1.12) rotate(-6deg)}
+.os .lg img{width:50px;height:50px;object-fit:contain}
+.os h3{font-size:26px;letter-spacing:-.03em}
+.os .sub{color:var(--mut);margin:6px 0 16px}
+.os ul{list-style:none;margin-bottom:26px;color:var(--mut);font-size:15px}
+.os li{display:flex;gap:10px;align-items:flex-start;padding:5px 0}
+.os li img{width:16px;height:16px;margin-top:5px;flex:none}
+.os .btn{margin-top:auto;width:100%;padding:0 12px;font-size:16px;white-space:nowrap}
+.os .rec{position:absolute;top:-14px;left:24px;background:var(--g);color:#fff;font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;display:none}
+.os.me{border-color:var(--g)}
+.os.me .rec{display:block;animation:rise .5s var(--ease)}
+.dl-foot{margin-top:30px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;color:var(--mut)}
+.dl-foot a{font-weight:700;color:var(--ink);border-bottom:2px solid var(--g)}
+
+/* video */
+.video{background:var(--ink);color:#fff}
+.video h2{color:#fff}
+.video .sec-head p{color:#a8b0bd}
+.vwrap{position:relative;border-radius:30px;overflow:hidden;border:2px solid #2a313b;background:#000;aspect-ratio:16/9}
+.vwrap video{width:100%;height:100%;display:block;object-fit:cover}
+.vtags{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.vtags span{padding:8px 16px;border:1px solid #2a313b;border-radius:999px;color:#a8b0bd;font-weight:600;font-size:14px}
+
+/* faq */
+.faq{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;font-weight:700;font-size:20px;letter-spacing:-.02em;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:30px;font-weight:400;transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;color:var(--mut);font-size:17px}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:54px 0 70px}
+footer .wrap{display:flex;gap:30px;justify-content:space-between;flex-wrap:wrap;align-items:center}
+.soc{display:flex;gap:12px}
+.soc a{width:50px;height:50px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease),border-color .3s}
+.soc a:hover{transform:translateY(-5px);border-color:var(--ink)}
+.soc img{width:26px;height:26px;object-fit:contain}
+footer p{color:var(--mut);font-size:15px}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}
+
+@keyframes rise{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes phone{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(.8deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(22,163,74,.5)}70%{box-shadow:0 0 0 10px rgba(22,163,74,0)}100%{box-shadow:0 0 0 0 rgba(22,163,74,0)}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes fill{0%{width:0}62%{width:100%}92%{width:100%}100%{width:0}}
+@keyframes tick{0%,12%{color:#9aa3af}20%,90%{color:var(--ink)}100%{color:#9aa3af}}
+@keyframes dot{0%,12%{background:#fff;border-color:#d4d8de}20%,90%{background:var(--g);border-color:var(--g)}100%{background:#fff;border-color:#d4d8de}}
+@keyframes chk{0%,12%{opacity:0}20%,90%{opacity:1}100%{opacity:0}}
+@keyframes pop{0%,66%{opacity:0;transform:translateY(16px) scale(.96)}72%,90%{opacity:1;transform:none}100%{opacity:0;transform:translateY(16px) scale(.96)}}
+
+@media (max-width:1020px){
+  .hero .wrap{grid-template-columns:1fr}
+  .stage{height:600px;max-width:520px;margin:0 auto;width:100%}
+  .grid,.dl{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .links{display:none}
+}
+@media (max-width:620px){
+  section{padding:76px 0}
+  .grid,.dl{grid-template-columns:1fr}
+  .fl.a,.fl.c{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .bar i{width:100%}.row{color:var(--ink)}.row .d{background:var(--g);border-color:var(--g)}.row .d img{opacity:1}.done{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="assets/icon.png" alt="">YBT Builder</a>
+    <div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#download">Download</a><a href="#video">Video</a><a href="#faq">FAQ</a></div>
+    <a class="btn" href="#download">Download</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i>Now available for Android, Windows, Linux &amp; Web</span>
+      <h1><span style="animation-delay:.05s">Turn</span> <span style="animation-delay:.12s">any</span> <span style="animation-delay:.19s">website</span> <span style="animation-delay:.26s">into</span> <span class="g" style="animation-delay:.33s">an&nbsp;app.</span></h1>
+      <p class="lead">A guided builder that creates signed Android apps from a website or an offline HTML project - configured in minutes, built in the cloud, delivered as one ZIP.</p>
+      <div class="cta">
+        <a class="btn green" href="#download"><img src="assets/icons/LuDownload-w.svg" alt="">Download now</a>
+        <a class="btn ghost" href="#video"><img src="assets/icons/LuPlay.svg" alt="">Watch the video</a>
+      </div>
+      <p class="note">Free to try with a product key from You B Tech.</p>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="fl a"><img src="assets/logos/flutter.png" alt=""></div>
+      <div class="fl b"><img src="assets/logos/android.png" alt=""></div>
+      <div class="fl c"><img src="assets/logos/windows.png" alt=""></div>
+      <div class="fl d"><img src="assets/logos/linux.png" alt=""></div>
+      <div class="fl e"><img src="assets/logos/google-chrome.png" alt=""></div>
+      <div class="fl f"><img src="assets/logos/github-actions.png" alt=""></div>
+      <div class="phone"><div class="notch"></div>
+        <div class="in">
+          <div class="ttl"><img src="assets/icon.png" alt="">Building your app</div>
+          <div class="bar"><i></i></div>
+          <div class="row"><span class="d"><img src="assets/icons/LuCheck-w.svg" alt=""></span>Environment ready</div>
+          <div class="row"><span class="d"><img src="assets/icons/LuCheck-w.svg" alt=""></span>Applying configuration</div>
+          <div class="row"><span class="d"><img src="assets/icons/LuCheck-w.svg" alt=""></span>Building APK</div>
+          <div class="row"><span class="d"><img src="assets/icons/LuCheck-w.svg" alt=""></span>Signing artifacts</div>
+          <div class="row"><span class="d"><img src="assets/icons/LuCheck-w.svg" alt=""></span>Packaging ZIP</div>
+          <div class="done"><img src="assets/icons/LuPackageCheck-w.svg" alt="" width="26" height="26"><div>app-release.apk<small>Signed - ready to install</small></div><b>Ready</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="track" id="track"></div>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat rv"><b data-count="4">0</b><span>Platforms</span></div>
+    <div class="stat rv d1"><b data-count="6">0</b><span>Guided steps</span></div>
+    <div class="stat rv d2"><b data-count="1">0</b><span>ZIP delivered</span></div>
+    <div class="stat rv d3"><b data-count="0">0</b><span>Lines of code needed</span></div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Everything an app needs. <span class="g">Nothing you have to code.</span></h2><p>From the first icon to the signed release, the builder handles each step for you.</p></div>
+    <div class="grid">
+      <div class="card rv"><div class="ic"><img src="assets/icons/LuGlobe-g.svg" alt=""></div><h3>Website or offline ZIP</h3><p>Wrap a live site, or bundle an offline HTML project that runs fully inside the app.</p></div>
+      <div class="card rv d1"><div class="ic"><img src="assets/icons/LuSparkles-g.svg" alt=""></div><h3>Splash &amp; branding</h3><p>Icon, colors, splash screen, timing and exit animation with a live phone preview.</p></div>
+      <div class="card rv d2"><div class="ic"><img src="assets/logos/google-admob.png" alt=""></div><h3>AdMob monetization</h3><p>Optional banner and interstitial ads with sensible, policy-friendly intervals.</p></div>
+      <div class="card rv d3"><div class="ic"><img src="assets/icons/LuShieldCheck-g.svg" alt=""></div><h3>Permissions on demand</h3><p>Camera, microphone, location, files and notifications - only what your site needs.</p></div>
+      <div class="card rv"><div class="ic"><img src="assets/logos/github-actions.png" alt=""></div><h3>Cloud builds</h3><p>Builds run on GitHub Actions in your own private repository. No build server to manage.</p></div>
+      <div class="card rv d1"><div class="ic"><img src="assets/icons/LuPackageCheck-g.svg" alt=""></div><h3>Signed APK + AAB</h3><p>Release-ready packages with your own signing key, plus the Android project and a build report.</p></div>
+      <div class="card rv d2"><div class="ic"><img src="assets/icons/LuWandSparkles-g.svg" alt=""></div><h3>AI agent <small>(soon)</small></h3><p>Describe a site and let the agent create and edit its files, with an instant preview.</p></div>
+      <div class="card rv d3"><div class="ic"><img src="assets/icons/LuRefreshCw-g.svg" alt=""></div><h3>Always up to date</h3><p>Built-in update notices make sure everyone runs the latest version.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="flow" id="how">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Three steps. <span class="g">One download.</span></h2><p>Configure, let the cloud build it, then download your app.</p></div>
+    <img class="rv" src="assets/flow.svg" alt="Configure, build in the cloud, download">
+    <div class="steps">
+      <div class="card rv"><span class="n">1</span><h3>Configure</h3><p>Follow the six-step wizard: details, content, appearance, monetization, permissions and review.</p></div>
+      <div class="card rv d1"><span class="n">2</span><h3>Build</h3><p>One tap starts a private cloud build. Watch each stage live - it keeps going even if you close the app.</p></div>
+      <div class="card rv d2"><span class="n">3</span><h3>Download</h3><p>Get signed APK and AAB files, the Android source project and a report, all in one ZIP.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>Download for <span class="g">your system.</span></h2><p>Pick your platform. Each button opens the release page with the matching files and checksums.</p></div>
+    <div class="dl">
+      <article class="os rv" data-os="android"><span class="rec">Recommended for you</span>
+        <div class="lg"><img src="assets/logos/android.png" alt=""></div><h3>Android</h3><p class="sub">Phones &amp; tablets</p>
+        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">Android 7.0 or newer</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Universal APK</li><li><img src="assets/icons/LuCheck-g.svg" alt="">ARM64, ARM32 &amp; x86_64 APKs</li></ul>
+        <a class="btn" href="RELEASE_URL" data-rel>Download for Android</a></article>
+      <article class="os rv d1" data-os="windows"><span class="rec">Recommended for you</span>
+        <div class="lg"><img src="assets/logos/windows.png" alt=""></div><h3>Windows</h3><p class="sub">Desktop installer</p>
+        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">Windows 10 / 11, 64-bit</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Guided setup.exe installer</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Start menu &amp; uninstall entry</li></ul>
+        <a class="btn" href="RELEASE_URL" data-rel>Download for Windows</a></article>
+      <article class="os rv d2" data-os="linux"><span class="rec">Recommended for you</span>
+        <div class="lg"><img src="assets/logos/linux.png" alt=""></div><h3>Linux</h3><p class="sub">Desktop bundle</p>
+        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">64-bit (x64) distributions</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Portable .tar.gz bundle</li><li><img src="assets/icons/LuCheck-g.svg" alt="">GTK 3 required</li></ul>
+        <a class="btn" href="RELEASE_URL" data-rel>Download for Linux</a></article>
+      <article class="os rv d3" data-os="web"><span class="rec">Recommended for you</span>
+        <div class="lg"><img src="assets/logos/google-chrome.png" alt=""></div><h3>Web</h3><p class="sub">Production build</p>
+        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">Any modern browser</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Ready-to-host bundle</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Serve from any static host</li></ul>
+        <a class="btn" href="RELEASE_URL" data-rel>Download for Web</a></article>
+    </div>
+    <div class="dl-foot rv"><span>Looking for an older version?</span><a href="RELEASES_URL" data-all>Browse all releases</a><span>-</span><span>Every release includes a SHA256SUMS file to verify your download.</span></div>
+  </div>
+</section>
+
+<section class="video" id="video">
+  <div class="wrap">
+    <div class="sec-head rv"><h2>See it in <span style="color:#6ee79a">40 seconds.</span></h2><p>The launch video: dashboard, wizard, cloud build and every platform.</p></div>
+    <div class="vwrap rv"><video controls playsinline preload="metadata" poster="assets/media/poster.jpg"><source src="assets/media/ybt-builder-launch-video.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
+    <div class="vtags rv"><span>Dashboard</span><span>Guided wizard</span><span>Cloud build</span><span>Android</span><span>Windows</span><span>Linux</span><span>Web</span></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq">
+    <div class="sec-head rv"><h2>Questions, <span class="g">answered.</span></h2></div>
+    <details class="rv"><summary>Do I need a product key?</summary><p>Yes. Access to the builder is protected by a product key from You B Tech. Each key has a limit on how many apps it can build, and the remaining quota is visible inside the app.</p></details>
+    <details class="rv"><summary>Where are my apps built?</summary><p>On GitHub Actions, in a private repository in your own GitHub account. Your project never touches a shared build server.</p></details>
+    <details class="rv"><summary>Is the source code available?</summary><p>No. Only the finished downloads, this page and the product video are public. The source code stays private.</p></details>
+    <details class="rv"><summary>Which file should I pick on Android?</summary><p>If you are unsure, take the universal APK. Newer phones usually run the ARM64 file, older phones the ARM32 file, and emulators the x86_64 file.</p></details>
+    <details class="rv"><summary>Windows says the app is from an unknown publisher.</summary><p>The installer is not signed with a paid code-signing certificate yet, so Windows SmartScreen may ask for confirmation. Choose "More info" and then "Run anyway", and compare the file with the published SHA256SUMS.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><a class="brand" href="#top"><img src="assets/icon.png" alt="">YBT Builder</a><p style="margin-top:12px">&copy; You B Tech. All rights reserved.</p></div>
+    <div class="soc">
+      <a href="https://youtube.com/@You_B_Tech" aria-label="YouTube"><img src="assets/logos/youtube.png" alt=""></a>
+      <a href="https://www.instagram.com/youbtech_code" aria-label="Instagram"><img src="assets/logos/instagram.png" alt=""></a>
+      <a href="https://t.me/You_B_Tech" aria-label="Telegram"><img src="assets/logos/telegram.png" alt=""></a>
+      <a href="https://x.com/You_B_Tech" aria-label="X"><img src="assets/logos/x-formerly-twitter.png" alt=""></a>
+    </div>
+    <a class="btn ghost" href="https://ybtshop.com">Visit ybtshop.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var REPO = 'YouBTech01/ybt-builder-releases';
+  var base = 'https://github.com/' + REPO;
+  document.querySelectorAll('[data-rel]').forEach(function(a){ a.href = base + '/releases/latest'; });
+  document.querySelectorAll('[data-all]').forEach(function(a){ a.href = base + '/releases'; });
+
+  // tech ticker
+  var names = ['flutter','dart','kotlin','android','firebase','github-actions','react','javascript','html','css3','windows','linux','google-chrome','google-play','android-studio'];
+  var t = document.getElementById('track'), html = '';
+  for (var k = 0; k < 2; k++) names.forEach(function(n){ html += '<img src="assets/logos/' + n + '.png" alt="' + n + '" loading="lazy">'; });
+  t.innerHTML = html;
+
+  // scroll reveal
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  // counters
+  var co = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target, to = +el.dataset.count, s = performance.now();
+      (function step(n){ var p = Math.min(1, (n - s) / 1100), v = Math.round(to * (1 - Math.pow(1 - p, 3))); el.textContent = v; if (p < 1) requestAnimationFrame(step); })(s);
+      co.unobserve(el);
+    });
+  }, { threshold: .6 });
+  document.querySelectorAll('[data-count]').forEach(function(el){ co.observe(el); });
+
+  // highlight the visitor's system
+  var ua = navigator.userAgent.toLowerCase(), os = /android/.test(ua) ? 'android' : /windows/.test(ua) ? 'windows' : /linux|x11/.test(ua) ? 'linux' : '';
+  if (os){ var c = document.querySelector('.os[data-os="' + os + '"]'); if (c) c.classList.add('me'); }
+})();
+</script>
+</body>
+</html>
