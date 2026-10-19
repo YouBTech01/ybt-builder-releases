@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>YBT Builder - Turn any website into an app</title>
-<meta name="description" content="YBT Builder turns a website or offline HTML project into signed Android apps from a guided builder for Android, Windows, Linux and the web. Download for your system.">
+<meta name="description" content="YBT Builder turns a website or offline HTML project into signed Android apps from a guided builder for Android, Windows and Linux. Download for your system.">
 <meta property="og:title" content="YBT Builder">
-<meta property="og:description" content="Turn any website into an app. Download for Android, Windows, Linux and Web.">
+<meta property="og:description" content="Turn any website into an app. Download for Android, Windows and Linux.">
 <meta property="og:image" content="assets/media/poster.jpg">
 <link rel="icon" href="assets/favicon.png">
 <script>document.documentElement.classList.add('js');</script>
@@ -121,7 +121,7 @@ nav .btn{height:44px;padding:0 20px;font-size:15px;border-radius:12px}
 .steps .n{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;align-items:center;justify-content:center;margin-bottom:16px}
 
 /* downloads */
-.dl{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.dl{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .os{position:relative;background:#fff;border:2px solid var(--line);border-radius:26px;padding:32px 28px 28px;display:flex;flex-direction:column;transition:transform .35s var(--ease),border-color .3s,box-shadow .35s}
 .os:hover{transform:translateY(-10px);border-color:var(--ink);box-shadow:0 28px 60px rgba(11,15,20,.10)}
 .os .lg{width:84px;height:84px;border-radius:24px;background:var(--soft);display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:transform .5s var(--ease)}
@@ -216,7 +216,7 @@ footer p{color:var(--mut);font-size:15px}
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="eyebrow"><i></i>Now available for Android, Windows, Linux &amp; Web</span>
+      <span class="eyebrow"><i></i>Now available for Android, Windows &amp; Linux</span>
       <h1><span style="animation-delay:.05s">Turn</span> <span style="animation-delay:.12s">any</span> <span style="animation-delay:.19s">website</span> <span style="animation-delay:.26s">into</span> <span class="g" style="animation-delay:.33s">an&nbsp;app.</span></h1>
       <p class="lead">A guided builder that creates signed Android apps from a website or an offline HTML project - configured in minutes, built in the cloud, delivered as one ZIP.</p>
       <div class="cta">
@@ -230,7 +230,7 @@ footer p{color:var(--mut);font-size:15px}
       <div class="fl b"><img src="assets/logos/android.png" alt=""></div>
       <div class="fl c"><img src="assets/logos/windows.png" alt=""></div>
       <div class="fl d"><img src="assets/logos/linux.png" alt=""></div>
-      <div class="fl e"><img src="assets/logos/google-chrome.png" alt=""></div>
+      <div class="fl e"><img src="assets/logos/kotlin.png" alt=""></div>
       <div class="fl f"><img src="assets/logos/github-actions.png" alt=""></div>
       <div class="phone"><div class="notch"></div>
         <div class="in">
@@ -254,7 +254,7 @@ footer p{color:var(--mut);font-size:15px}
 
 <div class="stats">
   <div class="wrap">
-    <div class="stat rv"><b data-count="4">0</b><span>Platforms</span></div>
+    <div class="stat rv"><b data-count="3">0</b><span>Platforms</span></div>
     <div class="stat rv d1"><b data-count="6">0</b><span>Guided steps</span></div>
     <div class="stat rv d2"><b data-count="1">0</b><span>ZIP delivered</span></div>
     <div class="stat rv d3"><b data-count="0">0</b><span>Lines of code needed</span></div>
@@ -303,12 +303,8 @@ footer p{color:var(--mut);font-size:15px}
         <a class="btn" href="RELEASE_URL" data-rel>Download for Windows</a></article>
       <article class="os rv d2" data-os="linux"><span class="rec">Recommended for you</span>
         <div class="lg"><img src="assets/logos/linux.png" alt=""></div><h3>Linux</h3><p class="sub">Desktop bundle</p>
-        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">64-bit (x64) distributions</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Portable .tar.gz bundle</li><li><img src="assets/icons/LuCheck-g.svg" alt="">GTK 3 required</li></ul>
+        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">Any 64-bit distribution</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Portable .tar.gz - no install</li><li><img src="assets/icons/LuCheck-g.svg" alt="">GTK 3 required</li></ul>
         <a class="btn" href="RELEASE_URL" data-rel>Download for Linux</a></article>
-      <article class="os rv d3" data-os="web"><span class="rec">Recommended for you</span>
-        <div class="lg"><img src="assets/logos/google-chrome.png" alt=""></div><h3>Web</h3><p class="sub">Production build</p>
-        <ul><li><img src="assets/icons/LuCheck-g.svg" alt="">Any modern browser</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Ready-to-host bundle</li><li><img src="assets/icons/LuCheck-g.svg" alt="">Serve from any static host</li></ul>
-        <a class="btn" href="RELEASE_URL" data-rel>Download for Web</a></article>
     </div>
     <div class="dl-foot rv"><span>Looking for an older version?</span><a href="RELEASES_URL" data-all>Browse all releases</a><span>-</span><span>Every release includes a SHA256SUMS file to verify your download.</span></div>
   </div>
@@ -318,7 +314,7 @@ footer p{color:var(--mut);font-size:15px}
   <div class="wrap">
     <div class="sec-head rv"><h2>See it in <span style="color:#6ee79a">40 seconds.</span></h2><p>The launch video: dashboard, wizard, cloud build and every platform.</p></div>
     <div class="vwrap rv"><video controls playsinline preload="metadata" poster="assets/media/poster.jpg"><source src="assets/media/ybt-builder-launch-video.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
-    <div class="vtags rv"><span>Dashboard</span><span>Guided wizard</span><span>Cloud build</span><span>Android</span><span>Windows</span><span>Linux</span><span>Web</span></div>
+    <div class="vtags rv"><span>Dashboard</span><span>Guided wizard</span><span>Cloud build</span><span>Android</span><span>Windows</span><span>Linux</span></div>
   </div>
 </section>
 
@@ -329,6 +325,7 @@ footer p{color:var(--mut);font-size:15px}
     <details class="rv"><summary>Where are my apps built?</summary><p>On GitHub Actions, in a private repository in your own GitHub account. Your project never touches a shared build server.</p></details>
     <details class="rv"><summary>Is the source code available?</summary><p>No. Only the finished downloads, this page and the product video are public. The source code stays private.</p></details>
     <details class="rv"><summary>Which file should I pick on Android?</summary><p>If you are unsure, take the universal APK. Newer phones usually run the ARM64 file, older phones the ARM32 file, and emulators the x86_64 file.</p></details>
+    <details class="rv"><summary>How do I run the Linux build?</summary><p>Extract the .tar.gz anywhere, then run the <code>ybt_builder</code> file inside. It works on any 64-bit Linux distribution that has GTK 3 installed.</p></details>
     <details class="rv"><summary>Windows says the app is from an unknown publisher.</summary><p>The installer is not signed with a paid code-signing certificate yet, so Windows SmartScreen may ask for confirmation. Choose "More info" and then "Run anyway", and compare the file with the published SHA256SUMS.</p></details>
   </div>
 </section>
@@ -354,7 +351,7 @@ footer p{color:var(--mut);font-size:15px}
   document.querySelectorAll('[data-all]').forEach(function(a){ a.href = base + '/releases'; });
 
   // tech ticker
-  var names = ['flutter','dart','kotlin','android','firebase','github-actions','react','javascript','html','css3','windows','linux','google-chrome','google-play','android-studio'];
+  var names = ['flutter','dart','kotlin','android','firebase','github-actions','react','javascript','html','css3','windows','linux','google-play','android-studio'];
   var t = document.getElementById('track'), html = '';
   for (var k = 0; k < 2; k++) names.forEach(function(n){ html += '<img src="assets/logos/' + n + '.png" alt="' + n + '" loading="lazy">'; });
   t.innerHTML = html;

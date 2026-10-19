@@ -10,7 +10,7 @@
 
 [![Latest release](https://img.shields.io/github/v/release/YouBTech01/ybt-builder-releases?style=flat-square&label=release&color=16a34a)](../../releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/YouBTech01/ybt-builder-releases/total?style=flat-square&label=downloads&color=0b0f14)](../../releases)
-![Platforms](https://img.shields.io/badge/platforms-Android%20%7C%20Windows%20%7C%20Linux%20%7C%20Web-0b0f14?style=flat-square)
+![Platforms](https://img.shields.io/badge/platforms-Android%20%7C%20Windows%20%7C%20Linux-0b0f14?style=flat-square)
 
 [**Website**](https://youbtech01.github.io/ybt-builder-releases/) &nbsp;·&nbsp; [**Download**](../../releases/latest) &nbsp;·&nbsp; [**Watch the video**](assets/media/ybt-builder-launch-video.mp4)
 
@@ -36,10 +36,9 @@ Pick your system. Every button opens the release page with the matching files an
 
 <table>
   <tr>
-    <td align="center" width="25%"><a href="../../releases/latest"><img src="assets/logos/android.png" height="64" alt="Android"></a><br><b>Android</b><br><sub>7.0+ · Universal, ARM64, ARM32, x86_64 APKs</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
-    <td align="center" width="25%"><a href="../../releases/latest"><img src="assets/logos/windows.png" height="64" alt="Windows"></a><br><b>Windows</b><br><sub>10 / 11 · 64-bit · <code>setup.exe</code> installer</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
-    <td align="center" width="25%"><a href="../../releases/latest"><img src="assets/logos/linux.png" height="64" alt="Linux"></a><br><b>Linux</b><br><sub>x64 · portable <code>.tar.gz</code> bundle</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
-    <td align="center" width="25%"><a href="../../releases/latest"><img src="assets/logos/google-chrome.png" height="64" alt="Web"></a><br><b>Web</b><br><sub>Production build · host anywhere</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
+    <td align="center" width="33%"><a href="../../releases/latest"><img src="assets/logos/android.png" height="64" alt="Android"></a><br><b>Android</b><br><sub>7.0+ · Universal, ARM64, ARM32, x86_64 APKs</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
+    <td align="center" width="33%"><a href="../../releases/latest"><img src="assets/logos/windows.png" height="64" alt="Windows"></a><br><b>Windows</b><br><sub>10 / 11 · 64-bit · <code>setup.exe</code> installer</sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
+    <td align="center" width="33%"><a href="../../releases/latest"><img src="assets/logos/linux.png" height="64" alt="Linux"></a><br><b>Linux</b><br><sub>Any 64-bit distribution · portable <code>.tar.gz</code></sub><br><br><a href="../../releases/latest"><b>Download ›</b></a></td>
   </tr>
 </table>
 
@@ -119,9 +118,9 @@ Pick your system. Every button opens the release page with the matching files an
 
 <div align="center">
 
-| <img src="assets/logos/android.png" height="40"><br>Android | <img src="assets/logos/windows.png" height="40"><br>Windows | <img src="assets/logos/linux.png" height="40"><br>Linux | <img src="assets/logos/google-chrome.png" height="40"><br>Web |
-| :-: | :-: | :-: | :-: |
-| APK ×4 · AAB | `setup.exe` | `.tar.gz` | `.zip` |
+| <img src="assets/logos/android.png" height="40"><br>Android | <img src="assets/logos/windows.png" height="40"><br>Windows | <img src="assets/logos/linux.png" height="40"><br>Linux |
+| :-: | :-: | :-: |
+| 4 APKs (all CPUs) | `setup.exe` installer | portable `.tar.gz` |
 
 </div>
 
@@ -165,7 +164,7 @@ This is the **public distribution repository**. It contains only finished downlo
         └── poster.jpg                     Video poster
 ```
 
-Release files (APK, installer, Linux bundle, web bundle and checksums) are attached to each [release](../../releases).
+Release files (APKs, Windows installer, Linux bundle and checksums) are attached to each [release](../../releases).
 
 <br>
 
